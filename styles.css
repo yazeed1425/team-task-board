@@ -1,0 +1,142 @@
+:root {
+  --bg: #0f1117;
+  --surface: #1a1d27;
+  --border: #2a2f3d;
+  --text: #e8eaef;
+  --muted: #8b92a5;
+  --accent: #6c8cff;
+  --accent-hover: #5478ff;
+  --todo: #f59e0b;
+  --progress: #3b82f6;
+  --done: #22c55e;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.app { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.header h1 { font-size: 1.75rem; font-weight: 700; }
+.subtitle { color: var(--muted); margin-top: 0.25rem; font-size: 0.95rem; }
+
+.btn {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  padding: 0.6rem 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.15s;
+}
+
+.btn:hover { background: var(--border); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn.primary:hover { background: var(--accent-hover); }
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .board { grid-template-columns: 1fr; }
+}
+
+.column {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+  min-height: 320px;
+}
+
+.column h2 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.count {
+  background: var(--border);
+  color: var(--text);
+  padding: 0.1rem 0.5rem;
+  border-radius: 99px;
+  font-size: 0.75rem;
+}
+
+.cards { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.card:hover { border-color: var(--accent); }
+.card h4 { font-size: 0.95rem; margin-bottom: 0.4rem; }
+.card .assignee { font-size: 0.8rem; color: var(--muted); }
+
+dialog {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--text);
+  padding: 1.5rem;
+  width: min(400px, 90vw);
+}
+
+dialog::backdrop { background: rgba(0, 0, 0, 0.6); }
+
+dialog h3 { margin-bottom: 1.25rem; }
+
+dialog label {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+dialog input,
+dialog select {
+  display: block;
+  width: 100%;
+  margin-top: 0.35rem;
+  padding: 0.6rem 0.75rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}

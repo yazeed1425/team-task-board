@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team Task Board</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div>
+        <h1>Team Task Board</h1>
+        <p class="subtitle">Track daily dev work — webhook test project</p>
+      </div>
+      <button id="add-task-btn" class="btn primary">+ New Task</button>
+    </header>
+
+    <main class="board">
+      <section class="column" data-status="todo">
+        <h2>To Do <span class="count" id="count-todo">0</span></h2>
+        <div class="cards" id="col-todo"></div>
+      </section>
+      <section class="column" data-status="progress">
+        <h2>In Progress <span class="count" id="count-progress">0</span></h2>
+        <div class="cards" id="col-progress"></div>
+      </section>
+      <section class="column" data-status="done">
+        <h2>Done <span class="count" id="count-done">0</span></h2>
+        <div class="cards" id="col-done"></div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="task-dialog">
+    <form id="task-form" method="dialog">
+      <h3 id="dialog-title">New Task</h3>
+      <label>
+        Title
+        <input type="text" id="task-title" required placeholder="e.g. Fix login bug" />
+      </label>
+      <label>
+        Assignee
+        <input type="text" id="task-assignee" placeholder="e.g. yazeed1425" />
+      </label>
+      <label>
+        Status
+        <select id="task-status">
+          <option value="todo">To Do</option>
+          <option value="progress">In Progress</option>
+          <option value="done">Done</option>
+        </select>
+      </label>
+      <div class="dialog-actions">
+        <button type="button" class="btn" id="cancel-btn">Cancel</button>
+        <button type="submit" class="btn primary">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
